@@ -10,7 +10,9 @@
 </head>
 <body>
     <div class="container">
+        <!-- 1 row of 3 -->
         <div class="row">
+            <!-- 1 col of 1 -->
             <div class="col-12 text-center">
                 <h1>Enter a letter to win!</h1>
                 <div class="input-group input-group-lg">
@@ -21,11 +23,13 @@
                   </div>
             </div>
         </div>
+        <!-- 1 row of 3 -->
         <div class="row mt-3">
             <div class="col-12">
-                <button type="button" class="btn btn-outline-primary btn-lg btn-block" onclick="alert('hi jake')">Play!</button>
+                <button type="button" class="btn btn-outline-primary btn-lg btn-block" onclick="handleclick('anything')">Play!</button>
             </div>
         </div>
+        <!-- 1 row of 3 -->
         <div class="row mt-5">
             <div class="col-12">
                 <div class="jumbotron">
@@ -34,9 +38,14 @@
             </div>
         </div>
     </div>
-    
+    <!-- adds javascript within the html -->
     <script>
-        alert("start");
+        
+        function handleclick(str) {
+            alert(str);
+        }
+
     </script>
+
 </body>
 </html>
