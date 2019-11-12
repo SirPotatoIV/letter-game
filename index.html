@@ -42,41 +42,56 @@
     <script>
         
         function startGame() {
+            // defines all the possible correct answers that the user can guess.
             const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-            // const randomIndex 
-                // math has to be capitalized
-                const indexLocation = Math.floor(Math.random() * letters.length);
-                console.log(indexLocation);
-                const letterSelected = letters[indexLocation];
-                console.log(letterSelected);
-                // console.log(letters);
-                // lettersLength = letters.length;
-                // console.log(lettersLength);
+            // Selects a random index location. Math.random creates a random number from 0-1, but can't be 1. If you multiply it by the length of the array, you will get all the possible indices. Floor gets rid of the decimals after the integer.
+            // Math has to be capitalized.
+            const indexLocation = Math.floor(Math.random() * letters.length);
+            console.log(indexLocation);
+            // Uses indexLocation, which contains a random index location, and defines letterSelected to be equal to the letter at that index location.
+            const letterSelected = letters[indexLocation];
+            console.log(letterSelected);
+            // Defined to store the users guesses
+            const guesses = [];
+
+            function handleClick() {
+                    // Gets the input element.
+                    const inputEl = document.getElementById("user-letter");
+                    // Gets the value from inputEl, which is the input element, which is the users guess to the game.
+                    const letterPicked = inputEl.value;
+                    // Takes the const letterPicked and lower cases the string. If the user inputs an upper case letter, it makes it lower case. If it didn't do this and the user guessed B and the random letter was b, it would return loser.
+                    const letterPickedLower = letterPicked.toLowerCase();
+                    console.log(letterPickedLower);
+                    // if used to see if the users guess was correct
+                    if(letterPickedLower === letterSelected) {
+                        // console.log("winner");
+                        outcomeDisplay.innerHTML = "Winner!";
+                    } else {
+                        // 
+                        if(guesses.indexOf(letterPickedLower) > -1) {
+                            return alert("bruh, you tried dat already.")
+                        }
+                        // Used to add the users guess to the constant guesses whenever they guess wrong.
+                        guesses.push(letterPickedLower);
+                        console.log(guesses);
+                        let message = "Current guesses "
+                        // This is used to create a list in the console of guesses.
+                        for(i = 0; i < guesses.length; i++) {
+                            const guess = guesses[i];
+                            console.log(guess);
+                            message = message + " " + guess;
+                        }
+                        outcomeDisplay.innerHTML = message;
+                    }
+                }
+                // takes the function handleClick and defines it in the Window
+            window.handleClick = handleClick;
+
         }
-        startGame()
         
-        function handleClick() {
-            
-            const inputEl = document.getElementById("user-letter");
-                // console.log(inputEl);
+        startGame();
+        
 
-            const letterPicked = inputEl.value;
-                console.log(letterPicked);
-
-            const letterPickedLower = letterPicked.toLowerCase();
-                console.log(letterPickedLower);
-            
-            const letterEl = document.getElementById("user-letter");
-                // console.log(letterEl);
-
-            if(letterPickedLower === "b") {
-                // console.log("winner");
-                outcomeDisplay.innerHTML = "Winner!";
-            } else {
-                // console.log("loser", "b", letterPicked);
-                outcomeDisplay.innerHTML = "Try Again!"
-            }
-        }
 
     </script>
 
