@@ -41,31 +41,35 @@
     <!-- adds javascript within the html -->
     <script>
         
+        function startGame() {
+            const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+            // const randomIndex 
+                // math has to be capitalized
+                const indexLocation = Math.floor(Math.random() * letters.length);
+                console.log(indexLocation);
+                const letterSelected = letters[indexLocation];
+                console.log(letterSelected);
+                // console.log(letters);
+                // lettersLength = letters.length;
+                // console.log(lettersLength);
+        }
+        startGame()
+        
         function handleClick() {
             
             const inputEl = document.getElementById("user-letter");
                 // console.log(inputEl);
 
             const letterPicked = inputEl.value;
-                // console.log(letterPicked);
+                console.log(letterPicked);
 
             const letterPickedLower = letterPicked.toLowerCase();
-                // console.log(letterPickedLower);
+                console.log(letterPickedLower);
             
             const letterEl = document.getElementById("user-letter");
                 // console.log(letterEl);
-            
-            const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-            // const randomIndex 
-                // math has to be capitalized
-                const indexLocation = Math.floor(Math.random() * letters.length);
-                console.log(indexLocation);
-                // console.log(letters);
-                // lettersLength = letters.length;
-                // console.log(lettersLength);
 
-            if(letterPickedLower === letters[indexLocation]) {
-                console.log(letters[indexLocation])
+            if(letterPickedLower === "b") {
                 // console.log("winner");
                 outcomeDisplay.innerHTML = "Winner!";
             } else {
