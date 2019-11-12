@@ -33,7 +33,7 @@
         <div class="row mt-5">
             <div class="col-12">
                 <div class="jumbotron">
-                    <h1 class="display-4 text-center">Winner</h1>
+                    <h1 class="display-4 text-center" id="outcomeDisplay">Result Here</h1>
                   </div>
             </div>
         </div>
@@ -42,16 +42,35 @@
     <script>
         
         function handleClick() {
+            
             const inputEl = document.getElementById("user-letter");
-                console.log(inputEl)
+                // console.log(inputEl);
 
             const letterPicked = inputEl.value;
-                console.log(letterPicked)
+                // console.log(letterPicked);
 
-            if(letterPicked === "b") {
-                console.log("winner");
+            const letterPickedLower = letterPicked.toLowerCase();
+                // console.log(letterPickedLower);
+            
+            const letterEl = document.getElementById("user-letter");
+                // console.log(letterEl);
+            
+            const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+            // const randomIndex 
+                // math has to be capitalized
+                const indexLocation = Math.floor(Math.random() * letters.length);
+                console.log(indexLocation);
+                // console.log(letters);
+                // lettersLength = letters.length;
+                // console.log(lettersLength);
+
+            if(letterPickedLower === letters[indexLocation]) {
+                console.log(letters[indexLocation])
+                // console.log("winner");
+                outcomeDisplay.innerHTML = "Winner!";
             } else {
-                console.log("loser", "b", letterPicked);
+                // console.log("loser", "b", letterPicked);
+                outcomeDisplay.innerHTML = "Try Again!"
             }
         }
 
